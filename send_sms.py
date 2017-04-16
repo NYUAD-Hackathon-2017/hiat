@@ -5,7 +5,7 @@ import os
 
 from twilio.rest import Client
 from twilio.twiml.voice_response import VoiceResponse
-from flask import Flask
+from flask import Flask, Response, send_from_directory
 from flask import request
 
 app = Flask(__name__)
@@ -30,9 +30,9 @@ client = Client(ACCOUNT_SID, AUTH_TOKEN)
 
 STATE = "PROPOSING"
 
-@app.route("/")
+@app.route("/", methods=["GET"])
 def hello():
-  return "Bla Bla"
+  return send_from_directory("/", "index.html")
 
 @app.route("/send")
 def send_sms():

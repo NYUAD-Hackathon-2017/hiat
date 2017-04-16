@@ -4,21 +4,23 @@
   <link href="https://fonts.googleapis.com/css?family=Oleo+Script:400,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Teko:400,700" rel="stylesheet">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="bootstrap.js"></script>
-  <link rel="stylesheet" type="text/css" href="bootstrap.css">
-<link rel="stylesheet" type="text/css" href="css/jobForm.css">
-<meta charset=utf-8>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="static/css/jobForm.css">
+  <meta charset=utf-8>
 </head>
 
-<body background="res/nexus5ver4.jpg">
+<body background="static/img/nexus5ver4.jpg">
+
 <section id="contact">
   <div class="contact-section">
   <div class="container">
         <label for="hometown">Ne tür bir iş?</label><br>
+
+
           <div class="dropdown">
             <select name="one" class="dropdown-select">
               <option value="">Seç…</option>
@@ -29,10 +31,14 @@
               <option value="5">Mekanik</option>
             </select>
           </div>
+
+
           <div class="form-group">
             <label for="telephone">Bütçeniz ne kadar?</label>
             <input type="tel" class="form-control" id="telephone">
           </div>
+
+
           <div class="form-group">
             <label for="exampleInputUsername">Işi daha önce bitirmek</label>
             <input type="text" class="form-control" id="" >
@@ -42,6 +48,8 @@
             <label for ="description"> Açıklama </label>
             <textarea  class="form-control" id="description"></textarea>
           </div>
+
+
           <div class="form-group">
             <label for="exampleInputUsername">Yer seç</label>
             <div id="map"></div>
@@ -58,15 +66,18 @@
                   });
                 }
               </script>
+		
               <script async defer
               src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnQchnXyCFD6jChN7-WJyM7EKb7Kg97Y4&callback=initMap">
               </script>
             </div>
-          <div  class="form-group">
 
-              <label for="exampleInputUsername">Resim seç</label><br>
-            <img src="res/broken-bathroom-faucet.jpg" alt="Smiley face" >
+		
+          <div  class="form-group">
+            <label for="exampleInputUsername">Resim seç</label><br>
+            <img src="static/img/broken-bathroom-faucet.jpg" alt="Smiley face" >
           </div>
+
           <div class="form-group">
                 <button type="button" class="btn btn-default submit">Gönder</button>
           </div>
