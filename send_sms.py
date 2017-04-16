@@ -12,8 +12,8 @@ app = Flask(__name__)
 
 ACCOUNT_SID = 'ACcefa2306ccdba981522a00c621e602ab'
 AUTH_TOKEN = 'ba3216346af36cf72ad0fb48e45e5b8e'
-PHONE = '+41794477448'
-CUSTOMER = '+5491160190584'
+PHONE = '+971556383129'
+CUSTOMER = '+41794477448'
 
 JOB_REQUEST = """لقد وجدنا فرصة عمل تناسبك!
 المكان: منطقة كوجاتيبي، شارع مختار بيك، بناء رقم ١-٢٠١ / اسطنبول، تركيا
