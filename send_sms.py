@@ -28,7 +28,7 @@ JOB_CONFIRMATION = "السيد محمد في انتظارك!"
 CUSTOMER_CONFIRM = "job confirm"
 client = Client(ACCOUNT_SID, AUTH_TOKEN)
 
-COUNT = 0
+STATE = "PROPOSING"
 
 @app.route("/")
 def hello():
@@ -43,14 +43,20 @@ def send_sms():
 
 @app.route("/receive_sms")
 def receive_sms():
-  if request.args['Body'] == 'Y':
+  global STATE
+
+  if STATE == "PROPOSING":
     new_message = client.messages.create(to=PHONE, from_='+19143025185', body=JOB_DETAILS)
-  elif request.args['Body'] == 'Ok':
+    STATE = "DETAILS"
+  elif STATE == "DETAILS":
     new_message_1 = client.messages.create(to=PHONE, from_='+19143025185', body=JOB_CONFIRMATION)
     new_message_2 = client.messages.create(to=CUSTOMER, from_='+19143025185', body=CUSTOMER_CONFIRM)
+    STATE = "OK"
   else:
     new_message_1 = client.messages.create(to=PHONE, from_='+19143025185', body='OK')
-    new_message_2 = client.messages.create(to=CUSTOMER, from_='+19143025185', body='Job Done. 50USD debited from your credit card.')	#should be in turkish
+    new_message_2 = client.messages.create(to=CUSTOMER, from_='+19143025185', body='Job Done. 50USD debited from your credit card.')
+    STATE = "PROPOSING"
+
   return "OK!"
 
   
