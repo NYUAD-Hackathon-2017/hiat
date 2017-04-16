@@ -19,13 +19,17 @@ JOB_REQUEST = """لقد وجدنا فرصة عمل تناسبك!
 المكان: منطقة كوجاتيبي، شارع مختار بيك، بناء رقم ١-٢٠١ / اسطنبول، تركيا
 Kocatepe Mahallesi, Şht. Muhtar Bey Cd. No:1, 201 Beyoğlu/İstanbul, Turkey
 الوقت: الأحد ١٦-٤-٢٠١٧
-الثمن: ٣٠ ليرة"""
+الثمن: ٣٠ ليرة
+للمزيد من المعلومات أرسل 1
+للرفض أرسل 2"""
 
 JOB_DETAILS = """التفاصيل:
-إصلاح مغسلة ماء ليست تعمل جيدا، لا يخرج منها ماء أبدا ويصعب تحريك مقبضها."""
+إصلاح مغسلة ماء ليست تعمل جيدا، لا يخرج منها ماء أبدا ويصعب تحريك مقبضها.
+للتأكيد أرسل 1
+للرفض أرسل 2"""
 
 JOB_CONFIRMATION = "السيد محمد في انتظارك!"
-CUSTOMER_CONFIRM = "job confirm"
+CUSTOMER_CONFIRM = "Sizin için yetenekli bir tesisatçı bulduk! Adı Amro ve bugün ev saat 14'de evinde olacak."
 client = Client(ACCOUNT_SID, AUTH_TOKEN)
 
 STATE = "PROPOSING"
@@ -53,8 +57,7 @@ def receive_sms():
     new_message_2 = client.messages.create(to=CUSTOMER, from_='+19143025185', body=CUSTOMER_CONFIRM)
     STATE = "OK"
   else:
-    new_message_1 = client.messages.create(to=PHONE, from_='+19143025185', body='OK')
-    new_message_2 = client.messages.create(to=CUSTOMER, from_='+19143025185', body='Job Done. 50USD debited from your credit card.')
+    new_message_1 = client.messages.create(to=PHONE, from_='+19143025185', body='لقد تم التحقق من العملية  بنجاح!')
     STATE = "PROPOSING"
 
   return "OK!"
