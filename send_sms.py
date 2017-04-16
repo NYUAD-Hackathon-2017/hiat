@@ -41,8 +41,10 @@ def hello():
 @app.route("/send")
 def send_sms():
   global client
+  global STATE
   print 'Sending a message...'
   new_message = client.messages.create(to=PHONE, from_='+19143025185', body=JOB_REQUEST)
+  STATE = "PROPOSING"
   return "Thank you!"
 
 @app.route("/receive_sms")
